@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Alkshari - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2b3a4a;
+            --accent-color: #4a7c59;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 40px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 20px 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        nav {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a3e635;
+        }
+
+        .header-actions {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--accent-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        #moreAbout {
+            margin-top: 10px;
+            margin-bottom: 12px;
+        }
+
+        #toggleAboutBtn {
+            margin-top: 6px;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        #projectsContainer {
+            display: grid;
+            gap: 15px;
+        }
+
+        .project-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px 18px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            background-color: #e9ecef;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --bg-color: #121820;
+            --card-bg: #1c2530;
+            --text-color: #e5e7eb;
+            --text-muted: #9ca3af;
+        }
+
+        body.dark-mode h2 {
+            color: #93c5fd;
+        }
+
+        body.dark-mode .project-card {
+            background-color: #24303f;
+            border-color: #374151;
+        }
+
+        body.dark-mode ul li {
+            background-color: #2c3a4b;
+            color: #e5e7eb;
+        }
+
+        /* Print Styles */
+        @media print {
+            .header-actions,
+            #toggleAboutBtn,
+            .filter-controls,
+            nav {
+                display: none;
+            }
+
+            body {
+                background-color: #ffffff;
+                color: #000000;
+                padding-bottom: 0;
+            }
+
+            header {
+                background-color: #ffffff;
+                color: #000000;
+                box-shadow: none;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            header p {
+                color: #333333;
+            }
+
+            section {
+                box-shadow: none;
+                border: 1px solid #cccccc;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Aisha Alkshari</h1>
+        <p>Information Technology Student</p>
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#education">Education</a> |
+            <a href="#skills">Skills</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button id="themeToggleBtn" type="button">Dark Mode</button>
+            <button id="printCvBtn" type="button">Print / Save as PDF</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p id="aboutShort">I am an Information Technology student at King Abdulaziz University, passionate about software development, system design, and emerging web technologies.</p>
+            <div id="moreAbout" style="display: none;">
+                <p>My goal is to build innovative digital solutions and advance my career in IT engineering through hands-on projects, teamwork, and continuous learning.</p>
+            </div>
+            <button id="toggleAboutBtn" type="button">Show More</button>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <h3>King Abdulaziz University</h3>
+            <p><strong>Degree:</strong> Bachelor of Information Technology</p>
+            <p><strong>Expected Graduation:</strong> 2027</p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>SQL & Databases</li>
+                <li>Git & GitHub</li>
+                <li>Problem Solving</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="filter-controls">
+                <button class="filter-btn" data-category="All" type="button">All</button>
+                <button class="filter-btn" data-category="Web" type="button">Web</button>
+                <button class="filter-btn" data-category="Programming" type="button">Programming</button>
+            </div>
+            <div id="projectsContainer"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p><strong>Email:</strong> <a href="mailto:aalkshari@stu.kau.edu.sa">aalkshari@stu.kau.edu.sa</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/aishaAlkshari" target="_blank">github.com/aishaAlkshari</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">LinkedIn Profile</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Aisha Alkshari. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
